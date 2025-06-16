@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Military Orders</title>
+</head>
+<body>
+    <h2>Manual Order Entry</h2>
+    <form method="post">
+        <label>Location:</label><br>
+        <input type="text" name="location" required><br><br>
+
+        <label>Commander:</label><br>
+        <input type="text" name="commander" required><br><br>
+
+        <label>Mission:</label><br>
+        <textarea name="mission" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Generate Manual Order">
+    </form>
+
+    <hr>
+
+    <h2>Orders from Database</h2>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Location</th>
+            <th>Commander</th>
+            <th>Mission</th>
+            <th>Generate</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.location }}</td>
+            <td>{{ order.commander }}</td>
+            <td>{{ order.mission }}</td>
+            <td>
+                <form action="/generate/{{ order.id }}" method="get">
+                    <button type="submit">Generate</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
