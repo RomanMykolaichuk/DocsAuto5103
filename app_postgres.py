@@ -63,7 +63,7 @@ def generate_doc(order_id):
     tpl = DocxTemplate("templates_docx/order_template.docx")
     tpl.render(data)
 
-    output_path = f"generated/order_{order_id}_{data['date']}.docx"
+    output_path = f"generated/temp_order_{order_id}_{data['date']}.docx"
     tpl.save(output_path)
 
     return send_file(output_path, as_attachment=True)
