@@ -1,0 +1,10 @@
+project/
+│
+├── app.py                  # Flask-додаток
+├── templates/
+│   └── form.html           # HTML-форма на Jinja
+├── static/
+├── templates_docx/
+│   └── order_template.docx # Шаблон Word з Jinja-плейсхолдерами
+└── generated/
+    └── ...                 # Згенеровані файли .docx
