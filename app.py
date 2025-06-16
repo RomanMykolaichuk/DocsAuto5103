@@ -21,7 +21,7 @@ def generate_order():
         tpl.render(data)
 
         # Збереження файлу
-        output_path = f"generated/order_{data['date']}.docx"
+        output_path = f"generated/temp_order_{data['date']}.docx"
         tpl.save(output_path)
 
         return send_file(output_path, as_attachment=True)
